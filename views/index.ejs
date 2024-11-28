@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>eventingo</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Webflow" name="generator" />
+    <link href="styles/main.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+   <section class="mainView"> 
+    <div class="container w-container">
+      <h1 class="logo">Eventingo</h1>
+      <p class="subtitle">Search events nearby your city</p>
+      <div class="join-wrapper w-clearfix">
+        <div class="beta-line"></div>
+        <p class="join">Write your city location</p>
+        <div class="beta-line"></div>
+      </div>
+      <div class="city-location-form w-form">
+        <form action="/submit" id="form" class="w-clearfix" method="POST">
+          <input
+            class="field w-input"
+            maxlength="256"
+            name="location"
+            placeholder="Your city name"
+            type="text"
+            id="field"
+            required=""
+          />
+          <input
+            type="submit"
+            data-wait="Please wait..."
+            class="button w-button"
+            value="Submit"
+          />
+        </form> 
+      </div>
+    </section>
+      <% if (locals.events && locals.events.length > 0) { %>
+        <section class="eventsList">
+          <ul>
+            <% events.forEach((event) => { %>
+              <li>
+                <div>
+                  <div>
+                    <span>
+                      <%=event.eventName %>
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <p> <%=event.eventDate %></p>
+                  <p> <%=event.eventLocation %></p>
+                </div>
+                <a href="<%=event.eventUrl %>" class="btn btn-primary" target="_blank"> See more</a>
+              </li>
+            <% }); %>
+          </ul>
+        </section> 
+      <% } else { %>
+        <h1><%=error%></h1>
+      <% } %>
+           
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="styles/script.js" type="text/javascript"></script>
+  </body>
+</html>

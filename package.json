@@ -1,0 +1,19 @@
+{
+  "name": "5.7-eventingo",
+  "version": "1.0.0",
+  "description": "application showing events in your local area",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Szymon Maciejewski",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "qs": "^6.13.1"
+  }
+}
